@@ -21,7 +21,12 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     var locationManager = CLLocationManager()
     
     let authorizationStatus = CLLocationManager.authorizationStatus()
-    let regionRadius: Double = 100
+    let regionRadius: Double = 1000
+    
+    var spinner: UIActivityIndicatorView?
+    var progressLable: UILabel?
+    
+    var screenSize = UIScreen.main.bounds
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +35,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         locationManager.delegate = self
         configureLocationServices()
         addDoubleTap()
+        
         
     }
     
@@ -60,6 +66,15 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
+    }
+    
+    func addSpinner() {
+        spinner = UIActivityIndicatorView()
+        spinner?.center = CGPoint(x: (screenSize.width / 2) - ((spinner?.frame.width)! / 2), y: 150)
+        spinner?.activityIndicatorViewStyle = .whiteLarge
+        spinner?.color = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        spinner?.startAnimating()
+        pullUpView.addSubview(spinner!)
     }
     
 
@@ -105,6 +120,7 @@ extension MapVC: MKMapViewDelegate {
         removePin()
         animateViewUp()
         addSwipe()
+        addSpinner()
         
         let touchPoint = sender.location(in: mapView)
         let touchCoordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
