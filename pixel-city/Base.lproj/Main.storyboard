@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Bq0-6O-oWC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14101" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Bq0-6O-oWC">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="AvenirNext.ttc">
-            <string>AvenirNext-DemiBold</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--MapVC-->
         <scene sceneID="qHx-AN-ve9">
@@ -47,46 +42,50 @@
                                     <constraint firstItem="qJf-wc-qdt" firstAttribute="centerY" secondItem="Kbm-E1-VMc" secondAttribute="centerY" id="onK-xR-z7h"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="goy-BZ-58r">
-                                <rect key="frame" x="0.0" y="647" width="375" height="0.0"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="goy-BZ-58r">
+                                <rect key="frame" x="0.0" y="666" width="375" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="nDa-GA-JOr"/>
+                                </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xL7-9e-mBr">
                                 <rect key="frame" x="310" y="617" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i6y-yA-7K1">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="Lgk-wb-dBM"/>
-                                            <constraint firstAttribute="height" constant="50" id="Lt7-sP-Xmn"/>
-                                        </constraints>
-                                        <state key="normal" image="locationButton"/>
-                                        <connections>
-                                            <action selector="centerMapBtnWasPressed:" destination="Bq0-6O-oWC" eventType="touchUpInside" id="NKe-EI-3Ef"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i6y-yA-7K1">
+                                <rect key="frame" x="305" y="596" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Lgk-wb-dBM"/>
+                                    <constraint firstAttribute="height" constant="50" id="Lt7-sP-Xmn"/>
+                                </constraints>
+                                <state key="normal" image="locationButton"/>
+                                <connections>
+                                    <action selector="centerMapBtnWasPressed:" destination="Bq0-6O-oWC" eventType="touchUpInside" id="NKe-EI-3Ef"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="goy-BZ-58r" firstAttribute="bottom" secondItem="hBj-B8-ibO" secondAttribute="bottom" id="0Bz-OX-KrW"/>
+                            <constraint firstAttribute="bottom" secondItem="goy-BZ-58r" secondAttribute="bottom" id="32h-gw-21o"/>
                             <constraint firstItem="MZx-g4-9hM" firstAttribute="trailing" secondItem="hBj-B8-ibO" secondAttribute="trailing" id="GBs-Ux-FYk"/>
                             <constraint firstItem="MZx-g4-9hM" firstAttribute="bottom" secondItem="hBj-B8-ibO" secondAttribute="bottom" id="RXY-fI-2nK"/>
                             <constraint firstAttribute="trailing" secondItem="goy-BZ-58r" secondAttribute="trailing" id="S6S-kw-DRc"/>
                             <constraint firstItem="MZx-g4-9hM" firstAttribute="top" secondItem="arV-7m-IET" secondAttribute="top" id="X92-QR-lwj"/>
+                            <constraint firstItem="hBj-B8-ibO" firstAttribute="trailing" secondItem="i6y-yA-7K1" secondAttribute="trailing" constant="20" id="Yir-Mh-rRW"/>
                             <constraint firstItem="Kbm-E1-VMc" firstAttribute="leading" secondItem="hBj-B8-ibO" secondAttribute="leading" id="ZtC-Le-r43"/>
                             <constraint firstItem="Kbm-E1-VMc" firstAttribute="top" secondItem="arV-7m-IET" secondAttribute="top" id="c6d-PA-vFx"/>
+                            <constraint firstItem="goy-BZ-58r" firstAttribute="top" secondItem="i6y-yA-7K1" secondAttribute="bottom" constant="20" id="eoL-Un-h9K"/>
                             <constraint firstItem="goy-BZ-58r" firstAttribute="leading" secondItem="arV-7m-IET" secondAttribute="leading" id="ihK-an-qEL"/>
                             <constraint firstItem="MZx-g4-9hM" firstAttribute="leading" secondItem="hBj-B8-ibO" secondAttribute="leading" id="nRj-qq-miL"/>
-                            <constraint firstItem="goy-BZ-58r" firstAttribute="top" secondItem="MZx-g4-9hM" secondAttribute="bottom" id="vlU-MT-KQ1"/>
                             <constraint firstItem="Kbm-E1-VMc" firstAttribute="trailing" secondItem="hBj-B8-ibO" secondAttribute="trailing" id="wKq-QJ-ydD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hBj-B8-ibO"/>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="MZx-g4-9hM" id="oCZ-B5-RUU"/>
+                        <outlet property="pullUpView" destination="goy-BZ-58r" id="7l7-8v-PaA"/>
+                        <outlet property="pullUpViewHeightConstraint" destination="nDa-GA-JOr" id="6rv-k5-HPf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4h9-vE-5nU" userLabel="First Responder" sceneMemberID="firstResponder"/>
