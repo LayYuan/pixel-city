@@ -77,7 +77,26 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         pullUpView.addSubview(spinner!)
     }
     
+    func removeSpinner() {
+        if spinner != nil {
+           spinner?.removeFromSuperview()
+        }
+    }
 
+    func addProgressLabel() {
+        progressLable = UILabel()
+        progressLable?.frame = CGRect(x: (screenSize.width / 2) - 120, y: 175, width: 240, height: 40)
+        progressLable?.font = UIFont(name: "Avenier Next", size: 18)
+        progressLable?.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        progressLable?.textAlignment = .center
+        pullUpView.addSubview(progressLable!)
+    }
+    
+    func removeProgressLabel() {
+        if progressLable != nil {
+            progressLable?.removeFromSuperview()
+        }
+    }
   
 
     @IBAction func centerMapBtnWasPressed(_ sender: Any) {
@@ -118,9 +137,12 @@ extension MapVC: MKMapViewDelegate {
     @objc func dropPin(sender: UITapGestureRecognizer) {
        
         removePin()
+        removeSpinner()
+        removeProgressLabel()
         animateViewUp()
         addSwipe()
         addSpinner()
+        addProgressLabel()
         
         let touchPoint = sender.location(in: mapView)
         let touchCoordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
