@@ -103,7 +103,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     func addProgressLabel() {
         progressLable = UILabel()
         progressLable?.frame = CGRect(x: (screenSize.width / 2) - 120, y: 175, width: 240, height: 40)
-        progressLable?.font = UIFont(name: "Avenier Next", size: 12)
+        progressLable?.font = UIFont(name: "Avenier Next", size: 10)
         progressLable?.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         progressLable?.textAlignment = .center
         collectionView?.addSubview(progressLable!)
@@ -281,6 +281,13 @@ extension MapVC: UICollectionViewDataSource, UICollectionViewDelegate{
         let imageView = UIImageView(image: imageFromIndex)
         cell.addSubview(imageView)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let popVC = storyboard?.instantiateViewController(withIdentifier: "PopVC") as? PopVC else {return}
+        popVC.initData(forImage: imageArray[indexPath.row])
+        present(popVC, animated: true, completion: nil)
+        
     }
 }
 
